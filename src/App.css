@@ -1,0 +1,161 @@
+*{padding:0;margin:0}
+body{
+  background-color: black;
+  font-size: 13px;
+  color: white;
+  line-height: 1.7;
+}
+h1{
+  font-size: 60px;
+  margin-top: -15px;
+  line-height: 1.2;
+}
+h3{
+  color: rgb(224,131,159);
+  line-height: 2.5;
+}
+p{
+}
+a{
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+a:hover{
+  color: #e0839f;
+}
+ul{
+  list-style: none;
+}
+.container{
+  position: relative;
+  max-width: 980px;
+  margin: auto;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.header nav{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header nav a.active{
+  color: #e0839f;
+}
+.logo{
+  max-width: 230px;
+}
+hr{
+  margin: 30px 0;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.page {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  padding: 0 50px;
+  margin-top: 40px;
+}
+.page.columns_2{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 20px;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+
+.Home{
+  padding: 0 100px;
+}
+.Home h1{
+  margin-top: 100px;
+}
+
+/*================FORMS================*/
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+input, textarea {
+  outline: none;
+  resize: vertical;
+  background: #232323;
+  color: white;
+  border: 1px solid transparent;
+  padding: 7px 10px;
+  transition: 0.3s;
+  font-family: inherit;
+}
+input:focus, textarea:focus{
+  border: 1px solid rgb(224,131,159);
+}
+input[type="submit"]{
+  cursor: pointer;
+  transition: 0.3s;
+}
+input[type="submit"]:hover{
+  opacity: 0.8;
+}
+input[type="submit"]:focus{
+  opacity: 0.5;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #505050;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #232323 inset;
+}
+
+/*==================MODAL==================*/
+.contact_modal{
+  color: black;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.1s;
+  width: 90%;
+  margin: auto;
+}
+.loading_spinner{
+  width: 90px;
+  margin: 0 auto;
+}
