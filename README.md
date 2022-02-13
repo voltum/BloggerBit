@@ -1,4 +1,4 @@
-# Homepage for a crypto marketing agency [BloggerBit.io](https://bloggerbit.io/).
+# Homepage for a crypto marketing agency [BloggerBit.io](https://bloggerbit.io/) on React.
 
 ## Available Scripts
 
