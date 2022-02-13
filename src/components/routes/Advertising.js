@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Footer from '../Footer'
+import Contact from './Contact'
 
 function Advertising() {
+    useEffect(() => {
+      document.title = `Advertising | BLOGGERBIT`;
+    }, []);
     return (
         <>
             <div className="half">
@@ -15,9 +20,10 @@ function Advertising() {
                 <h3>Safety of your funds!</h3>
                 <p>We keep all the funds untill the video/s you ordered is/are delivered to you, if you are not satisfied with the outcome, we can request a rework from the influencer or refund you the money.</p>
             </div>
-            <div className="half">
-                <img src="/img/stockimg.png" alt="stock" />
+            <div className="half with_reverse">
+                <img src="/img/stockimg.png" alt="stock" className="halfimg" />
             </div>
+            <Contact />
         </>
     )
 }

@@ -1,6 +1,10 @@
 *{padding:0;margin:0}
+html{
+  background-color: #000000;
+  background-size: 220px;
+}
 body{
-  background-color: black;
+  /* background-color: black; */
   font-size: 13px;
   color: white;
   line-height: 1.7;
@@ -14,7 +18,8 @@ h3{
   color: rgb(224,131,159);
   line-height: 2.5;
 }
-p{
+img{
+  width: 100%;
 }
 a{
   color: white;
@@ -32,15 +37,21 @@ ul{
   position: relative;
   max-width: 980px;
   margin: auto;
+  padding: 0 20px;
 }
 .header{
   display: flex;
   justify-content: space-between;
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
 .header nav{
   display: flex;
   align-items: center;
   gap: 20px;
+}
+.topbar_collapse{
+  display: none;
 }
 .header nav a.active{
   color: #e0839f;
@@ -62,13 +73,13 @@ hr{
   right: 15px;
   padding: 0 50px;
   margin-top: 40px;
+  padding-bottom: 32px;
 }
 .page.columns_2{
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 20px;
 }
-
 .page-enter {
   opacity: 0;
   transform: scale(1.1);
@@ -92,12 +103,51 @@ hr{
 }
 
 
-.Home{
-  padding: 0 100px;
+.narrow_page{
+  padding-left: 100px;
+  padding-right: 100px;
 }
-.Home h1{
-  margin-top: 100px;
+.with_h1_margin h1{
+  margin-top: 50px;
 }
+
+
+.footer{
+  margin-top: 50px;
+  border-top: 1px dashed #80808069;
+  padding-top: 25px;
+}
+
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background: #4b4b4b;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(44, 44, 44);
+}
+
+a.long_btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  background: #a03b5c;
+  font-weight: 700;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+a.long_btn:hover{
+  color: white;
+  background: #c94e77;
+}
+a.long_btn:active{
+  background: #7e324b;
+}
+
 
 /*================FORMS================*/
 form{
@@ -143,6 +193,16 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #232323 inset;
 }
 
+
+
+#collapse{
+  visibility:hidden;
+  position:absolute;
+}
+.collapse_label img{
+  display: none;
+}
+
 /*==================MODAL==================*/
 .contact_modal{
   color: black;
@@ -158,4 +218,122 @@ select:-webkit-autofill:focus {
 .loading_spinner{
   width: 90px;
   margin: 0 auto;
+}
+
+
+
+
+
+/*===================MEDIA===================*/
+
+@media only screen and (max-width : 991px){
+  .with_h1_margin h1{
+    margin-top: 30px;
+  }
+  .page.columns_2{
+    grid-template-columns: auto;
+  }
+  .page.page.columns_2 .with_reverse{
+    grid-row: 1;
+  }
+  .half.with_reverse_contact {
+    grid-row: 3;
+  }
+  .page.page.columns_2 .halfimg{
+    height: 200px;
+    object-fit: cover;
+  }
+}
+@media only screen and (max-width: 767px){
+  h1{
+    font-size: 45px;
+  }
+  .page {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 544px){
+  h1{
+    font-size: 30px;
+  }
+  .page{
+    margin-top: 30px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .with_h1_margin h1{
+    margin-top: 0px;
+  }
+  .header{
+    display: none;
+  }
+  .topbar_collapse{
+    display: block;
+    list-style:none;
+    margin: 0;
+    /* padding-bottom: 20px; */
+    /* position: fixed; */
+    width: 100%;
+    z-index: 99;
+    transition: 0.3s;
+  }
+  .topbar_collapse li{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.1s linear;
+    background:#000000;
+    padding:10px;
+    color:white;
+    border-top:1px solid rgba(255,255,255,.1);  
+  }
+  .collapse_label:before{
+    height:2px;
+    width:20px;
+    background:white;
+    display:inline-block;
+    content:"";
+    box-shadow:0px -5px 0px 0px  white,
+               0px -10px 0px 0px white;
+    margin-right:10px;
+    transition:all .5s;
+    position:relative;
+    opacity:0.5;
+  }
+  .collapse_label{
+    height: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    background:#000000;
+    padding-left: 15px;
+    padding-top: 10px;
+    color:white;  
+    cursor:pointer; 
+  }
+  .collapse_label img{
+    display: block;
+    width: auto;
+  }
+  #collapse:not(:checked) + .topbar_collapse li{
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    margin-top:0; 
+  }
+  #collapse:checked ~ .topbar_collapse{
+    padding-bottom: 50px;
+  }
+
+  #collapse:checked ~ .collapse_label::before {
+    transform: rotate(90deg);
+    box-shadow: -5px -5px 0px 0px white, -5px 5px 0px 0px white;
+  }
+  #collapse:not(:checked) + .collapse_label:before{
+    position:relative;
+    opacity:1;
+    
+  }
 }

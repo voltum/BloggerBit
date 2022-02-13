@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import emailjs from 'emailjs-com';
 import Modal from 'react-awesome-modal';
 import loadingSVG from '../../loading.svg';
+import Footer from '../Footer'
 
 let templateParams = {
     name: 'James',
     notes: 'Check this out!'
 };
 
-
-
 function Contact() {
+    useEffect(() => {
+      document.title = `Contact us | BLOGGERBIT`;
+    }, []);
+
     const [modalIsVisible, setModalIsVisible] = React.useState(false);
     const [modalIsLoading, setModalIsLoading] = React.useState(false);
 
@@ -29,7 +32,6 @@ function Contact() {
         {
             name: e.target.elements.Name.value,
             email: e.target.elements.Email.value,
-            youtube: e.target.elements.Youtube.value,
             telegramOrSkype: e.target.elements.TelegramOrSkype.value,
             message: e.target.elements.Message.value,
             to_name: 'Master Bogdanoff',
@@ -51,28 +53,26 @@ function Contact() {
         <>
             <div className="half">
                 <h2>Contact us</h2>
-                <h3>Apply to become our influencer.​</h3>
+                {/* <h3>Apply to become our influencer.​</h3> */}
                 <form onSubmit={(e) => {formSubmit(e);}}>
-                    <input type="text" placeholder="Name" name="Name" required/>
+                    <input type="text" placeholder="Company" name="Name" required/>
                     <input type="email" placeholder="Email" name="Email" required/>
-                    <input type="url" placeholder="YouTube channel link (https://...)" name="Youtube" required/>
+                    {/* <input type="url" placeholder="YouTube channel link (https://...)" name="Youtube" required/> */}
                     <input type="text" placeholder="Telegram or Skype id" name="TelegramOrSkype" required/>
                     <textarea type="textarea" rows="4" placeholder="Your message" name="Message" required/>
                     <input type="submit" value="Submit" />
                 </form>
+            <Footer />
             </div>
-            <div className="half">
-                <h3>Interested in working with us?</h3>
+            <div className="half with_reverse_contact">
+                {/* <h3>Interested in working with us?</h3>
                 <p>You can apply using the form on the left side of the website, note however that we will demand proofs and results from your previous ads to make sure you are trustworthy.</p>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <h3>Our telegrams:</h3>
                 <ul>
                     <li>@coffeelake</li>
                     <li>@HOTEL_MOCKBA</li>
-                </ul>
+                </ul> */}
             </div>
             <Modal visible={modalIsVisible} width="400" height="300" effect="fadeInUp" onClickAway={() => setModalIsVisible(false)}>
                 <div className="contact_modal" >
